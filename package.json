@@ -1,0 +1,9 @@
+{
+  "name": "chat-application",
+  "version": "1.0.0",
+  "description": "simple chat app using nodejs, expressjs, sockets.io and jQuery",
+  "main": "index.js",
+  "repository": "git@github.com:blkdm0n/chat-application.git",
+  "author": "Bernard Kitchens <bernard.kitchens@gmail.com>",
+  "license": "MIT"
+}
