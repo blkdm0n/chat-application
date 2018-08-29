@@ -19,6 +19,11 @@ app.get(`/`, (req, res) => {
   res.sendFile(__dirname + `/index.html`);
 })
 
-io.on(`connection`, () => {
-  console.log(`A user has connected...`);
+io.on(`connection`, (socket) => {
+  console.log(`A user has connected...YAYYYYYY!!!!!`);
+
+  socket.on(`disconnect`, () => {
+    console.log(`A user has disconnected...SADZ :(`);
+  })
+
 })

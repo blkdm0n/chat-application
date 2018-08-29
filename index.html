@@ -1,27 +1,34 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
+
 <html class="no-js">
-<!--<![endif]-->
 
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Chat-A-Lot</title>
+  <title>Chat Sockets</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="">
+  <link rel="stylesheet" href="styles.css">
   <script src="socket.io/socket.io.js"></script>
 </head>
 
 <body>
-  <h1>Hello Whilrd</h1>
+  <div id="login-page">
+    <div id="login-text">
+      <h1>Log-in Page</h1>
+      <div id="login-form-area">
+        <form action="" id="login-form">
+          <input id="username" type="text" placeholder="Username" autocomplete="off">
+          <input id="submit-button" type="submit" value="Log-in">
+        </form>
+      </div>
+    </div>
+  </div>
 
-  <script src="" async defer>
+</body>
+  <script text="text/javascript ">
+    // this function connects use to the server as a user
     var socket = io();
   </script>
-</body>
 
 </html>
