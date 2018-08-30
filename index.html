@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 
-<html class="no-js">
-
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Chat Sockets</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="styles.css">
   <script src="socket.io/socket.io.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="styles/styles.css"/> -->
 </head>
 
 <body>
@@ -24,11 +20,30 @@
       </div>
     </div>
   </div>
+  <div id="test" style="display: none">
+    Test
+  </div>
 
 </body>
-  <script text="text/javascript ">
-    // this function connects use to the server as a user
-    var socket = io();
-  </script>
+<script text="text/javascript">
+  // this function connects use to the server as a user
+  var socket = io();
+
+  $("#login-form").submit((e) => {
+    // prevents the default behavior which undoes our attempt to hide the login page
+    e.preventDefault();
+
+    //get username value
+    username = $("#username").val();
+    
+
+    if (username.length === 0) {
+      alert(`Invalid username. Please try again!`);
+    } else {
+      $("#login-page").hide();
+      $("#test").show();
+    }
+  });
+</script>
 
 </html>
