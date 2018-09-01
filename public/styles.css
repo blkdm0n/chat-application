@@ -43,7 +43,6 @@ body {
 }
 
 #users-area {
-  padding-top: 10px;
   height: 100%;
   width: 30%;
   border-right: 5px solid black;
@@ -62,7 +61,6 @@ body {
 }
 
 #users {
-  margin: 50px 0px 0px 15px;
   text-align: left;
   font-size: 35px;
   list-style-type: none;
@@ -72,4 +70,16 @@ body {
 #users li {
   margin-top: 15px;
   text-align: center;
+}
+
+#message-area {
+   padding-top: 20px;
+   height: 100%;
+   width: 70%;
+   background-color: red;
+   text-align: center;
+}
+
+#message {
+  margin-top: 50px;
 }
