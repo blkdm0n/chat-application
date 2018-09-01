@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Chat Sockets</title>
+  <link href="styles.css" rel="stylesheet" type="text/css">
+  <script src="socket.io/socket.io.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div id="login-page">
+    <div id="login-text">
+      <h1>Log-in Page</h1>
+      <div id="login-form-area">
+        <form action="" id="login-form">
+          <input id="username" type="text" placeholder="Username" autocomplete="off">
+          <input id="submit-button" type="submit" value="Log-in">
+        </form>
+      </div>
+    </div>
+  </div>
+  <div id="chat-window">
+    <div id="users-online">
+      users go here
+    </div>
+    <div id="chats">
+      chats go here
+    </div>
+  </div>
+
+  <script text="application/javascript">
+    // this function connects use to the server as a user
+    var socket = io();
+
+    $("#login-form").submit((e) => {
+      // prevents the default behavior which undoes our attempt to hide the login page
+      e.preventDefault();
+      //get username value
+      username = $("#username").val();
+      if (username.length === 0) {
+        alert(`Invalid username. Please try again!`);
+      } else {
+        $("#login-page").hide();
+        $("#chat-window").show();
+      }
+    });
+  </script>
+</body>
+
+</html>
