@@ -9,13 +9,13 @@
 </head>
 
 <body>
-  <div id="login-page">
+  <div id="login-area">
     <div id="login-text">
       <h1>Log-in Page</h1>
       <div id="login-form-area">
         <form action="" id="login-form">
           <input id="username" type="text" placeholder="Username" autocomplete="off">
-          <input id="submit-button" type="submit" value="Log-in">
+          <input id="login-submit" type="submit" value="Log-in">
         </form>
       </div>
     </div>
@@ -43,7 +43,6 @@
   <script text="application/javascript">
     // this function connects use to the server as a user
     var socket = io();
-
     $("#login-form").submit((e) => {
       // prevents the default behavior which undoes our attempt to hide the login page
       e.preventDefault();
@@ -52,7 +51,7 @@
       if (username.length === 0) {
         alert(`Invalid username. Please try again!`);
       } else {
-        $("#login-page").hide();
+        $("#login-area").hide();
         $("#chat-window").show();
       }
     });

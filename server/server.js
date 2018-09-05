@@ -16,11 +16,6 @@ server.listen(3000, () => {
   console.log(`server is listening on port ${port}`);
 });
 
-// THIS DIDN'T WORK => Was I specifying the mime type by sending HTML using res.sendFile
-// app.get(`/`, (req, res) => {
-//   res.sendFile(__dirname + `/index.html`);
-// });
-
 io.on(`connection`, socket => {
   console.log(`A user has connected...YAYYYYYY!!!!!`);
 
