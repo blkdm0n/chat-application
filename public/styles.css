@@ -72,7 +72,7 @@ body {
   height: 100%;
   width: 20%;
   border-right: 1px solid #000000;
-  background-color: lightblue;
+  background-color: blue;
 }
 
 #chat-window #users-area #online-users {
