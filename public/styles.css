@@ -11,7 +11,7 @@ body {
   margin: 0;
   padding: 0;
   border-top: 1px solid transparent;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 #login-area {
@@ -65,7 +65,6 @@ body {
   height: 100%;
   width: 100%;
   border-top: 1px solid transparent;
-  background-color: lightgray;
 }
 
 #chat-window #users-area {
@@ -73,6 +72,7 @@ body {
   width: 20%;
   border-right: 1px solid #000000;
   background-color: blue;
+  float:left;ç
 }
 
 #chat-window #users-area #online-users {
@@ -87,9 +87,26 @@ body {
   padding: 0px;
 }
 
-#chat-window #users-area #online-users #current-users-online {
+#chat-window #users-area #online-users #current-users-online #users {
   margin: 0px;
   padding: 0px;
 }
 
+#users {
+  list-style-type: circle;
+  font-weight: bold;
+  margin-top: 10px;
+}
 
+#message-area {
+  height: 100%;
+  width: calc(80% - 1px);
+  background-color: aqua;
+  display: inline-block;
+}
+
+#chat-window #message-area #display-message-area {
+  width: 100%;
+  height: 90%;
+  background-color: gray;
+}
