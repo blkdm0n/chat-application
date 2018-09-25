@@ -6,9 +6,10 @@
   "repository": "git@github.com:blkdm0n/chat-application.git",
   "author": "Bernard Kitchens <bernard.kitchens@gmail.com>",
   "license": "MIT",
-  "scripts": {
-    "lint": "./node_modules/.bin/eslint **/*.{js,jsx} —-quiet"
-  },
+  "scripts": 
+    {
+      "lint": "./node_modules/.bin/eslint **/*.{js,jsx} —-quiet"
+    },
   "dependencies": {
     "eslint": "^5.4.0",
     "express": "^4.16.3",

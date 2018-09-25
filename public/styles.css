@@ -137,7 +137,7 @@ body {
   border: 5px solid lightblue;
 }
 
-#message > li:nth-child(odd) {
+#messages li:nth-child(odd) {
   background-color: lightskyblue;
 }
 

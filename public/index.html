@@ -28,31 +28,13 @@
         <h1>Online Users:</h1>
       </div>
       <div id="current-users-online">
-        <ul id="users">
-          <li>User #0</li>
-          <li>User #2</li>
-          <li>User #3</li>
-        </ul>
+        <ul id="users"></ul>
       </div>
     </div>
     <!-- MESSAGE AREA -->
     <div id="message-area">
       <div id="display-message-area">
-        <ul id="messages">
-          <li>Here is some text #1</li>
-          <li>Here is some text #2</li>
-          <li>Here is some text #3</li>
-          <li>Here is some text #4</li>
-          <li>Here is some text #1</li>
-          <li>Here is some text #2</li>
-          <li>Here is some text #3</li>
-          <li>Here is some text #4</li>
-          <li>Here is some text #1</li>
-          <li>Here is some text #2</li>
-          <li>Here is some text #3</li>
-          <li>Here is some text #4</li>
-          <li>Here is some text #2</li>
-        </ul>
+        <ul id="messages"></ul>
       </div>
       <div id="message-form-area">
         <form id="message-form" action="">
@@ -66,17 +48,44 @@
   <script text="application/javascript">
     // this function connects use to the server as a user
     var socket = io();
+
+    const updateList = (list) => {
+      list.forEach((item) => {
+        $("#users").append(`<li><b>${item}</b></li>`);
+      });
+    }
+
     $("#login-form").submit((e) => {
       // prevents the default behavior which undoes our attempt to hide the login page
       e.preventDefault();
-      //get username value
-      username = $("#username").val();
+      // get username value
+      $username = $("#username").val();
       if (username.length === 0) {
         alert(`Invalid username. Please try again!`);
       } else {
         $("#login-area").hide();
         $("#chat-window").show();
+
+        // creates an event that send the user name to the server
+        socket.emit("has connected", $username);
       }
+    });
+
+    // on connection we update the users => handled on server side
+    socket.on("has connected", (data) => {
+      // clear the current users from our HTML
+      $("#users").html("");
+      updateList(data.usersList);
+      $("#messages").append(`<li><i><b>${data.username}</b> has connected</li>`);
+
+    });
+
+    // on disconnecting we again update the users => handled on server side
+    socket.on("has disconnected", (data) => {
+      // clear the current users from our HTML
+      $("#users").html("");
+      updateList(data.usersList);
+      $("#messages").append(`<li><i><b>${data.username}</b> has disconnected</li>`);
     });
   </script>
 </body>

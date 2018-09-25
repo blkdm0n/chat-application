@@ -28,7 +28,6 @@ io.on(`connection`, socket => {
   socket.on(`disconnect`, () => {
     users.splice(users.indexOf(name), 1);
     // noticed the change of username reason about why?
-    //disconnecting the user who is NOT me then I was deleting MY username as too
     io.emit(`has disconnected`, { username: name, usersList: users });
   });
 });
