@@ -1,5 +1,6 @@
 var express = require(`express`);
 var http = require(`http`);
+var users = [];
 
 var app = express();
 
@@ -17,9 +18,17 @@ server.listen(3000, () => {
 });
 
 io.on(`connection`, socket => {
-  console.log(`A user has connected...YAYYYYYY!!!!!`);
+  var name = "";
+  socket.on(`has connected`, username => {
+    name = username;
+    users.push(username);
+    io.emit("has connected", { username: username, usersList: users });
+  });
 
   socket.on(`disconnect`, () => {
-    console.log(`A user has disconnected...SADZ :(`);
+    users.splice(users.indexOf(name), 1);
+    // noticed the change of username reason about why?
+    //disconnecting the user who is NOT me then I was deleting MY username as too
+    io.emit(`has disconnected`, { username: name, usersList: users });
   });
 });
